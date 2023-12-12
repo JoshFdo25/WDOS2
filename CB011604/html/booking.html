@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sakura Hotel | Home</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../javascript/booking.js" defer></script>
+    <script src="../javascript/navibar.js" defer></script>
+</head>
+<body>
+    <header id="room-booking-hero">
+        <div class="navbar">
+            <a href="../html/home.html"><img src="../images/logo.png" alt="logo" class="logo"></a>
+            <p class="title">Sakura Hotel Trinco</p>
+            <div class="nav">
+                <img src="../images/PinClipart.com_menu-clip-art_5328945(1).png" alt="Menu" class="menu1" onclick="ShowMenu()">
+                <ul id="navibar">
+                    <div>
+                        <img src="../images/PinClipart.com_doctor-office-clip-art_1046141.png" alt="Close" class="menu2" onclick="HideMenu()">
+                    </div>                    <li><a href="../html/home.html">Home</a></li>
+                    <li><a href="../html/branches.html">Branches</a></li>
+                    <li><a href="../html/adventures.html">Adventures</a></li>
+                    <li><a href="../html/restaurants.html">Restaurants</a>
+                        <div class="sub-menu">
+                            <ul>
+                                <li><a href="../html/meetings&events.html">Meetings & Events</a></li>
+                                <li><a href="../html/wedding&celebrations.html">Weddings</a></li>
+                            </ul>
+                        </div>
+                    </li>    
+                    <li><a class="active" href="../html/booking.html">Bookings</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="hero-title">
+            <h1>Book your room and adventures now</h1>
+        </div>
+    </header>
+
+    <div class="form-container">
+        <div class="room-booking-form">
+            <form id="bookingForm">
+                <h2 class="booking-heading">Room Booking</h2>
+
+                <div class="form-field">
+                        <label>Name with Initials:</label><br>
+                        <input type="text" placeholder="Enter your name" id="name">
+                </div>
+                <div class="form-field">
+                    <label>Email:</label><br>
+                    <input type="email" placeholder="Enter your Email" id="email">
+                </div>
+                <div class="form-field-checkbox">
+                    <legend>Choice of room:</legend>
+                    <div>
+                        <input type="radio" name="roomType" value="single">
+                        <label>Single</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="roomType" value="double">
+                        <label>Double</label>
+                    </div>
+                    <div>              
+                        <input type="radio" name="roomType" value="triple">
+                        <label>Triple</label>
+                    </div>
+                </div>
+                <div class="form-field-number">
+                    <label for="noOfRooms">No. of Rooms:</label>
+                    <input type="number" id="noOfRooms" min="1" value="1">
+                </div>
+                <div class="form-field-number">
+                    <label for="roomCheckIn">Check-in:</label>
+                    <input type="date" id="roomCheckIn" required>
+                </div>
+                <div class="form-field-number">
+                    <label for="stayDuration">Stay duration (Nights):</label>
+                    <input type="number" id="stayDuration" min="1" value="1">
+                </div>
+                <div class="form-field-number">
+                        <label for="noOfAdults">No. of Adults:</label>
+                        <input type="number" id="noOfAdults" min="1" value="1">
+                </div>
+                <div class="form-field-number">
+                    <p>
+                        <label for="noOfChildren">No. of Children (Age 5+):</label>
+                        <input type="number" id="noOfChildren" min="0" value="0">
+                    </p>
+                </div>
+                <div class="form-field-checkbox">
+                    <legend>Extra requirements:</legend>
+                    <p>
+                        <input type="checkbox" id="wiFi" name="wiFi">
+                        <label for="wiF i">Wi-Fi</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="poolView" name="poolView">
+                        <label for="poolView">Pool view</label>
+                    </p>
+                    <p>              
+                        <input type="checkbox" id="gardenView" name="gardenView">
+                        <label for="gardenView">Garden view</label>
+                    </p>
+                    <p>              
+                        <input type="checkbox" id="extraBed" name="extraBed">
+                        <label for="extraBed">Extra Beds</label>
+                    </p>
+                </div>
+                <div class="form-field">
+                        <label for="promoCode">Promo Code:</label><br>
+                        <input type="text" placeholder="Enter Promo code" id="promoCode">
+                </div>
+                <button type="button" class="btn" onclick="addToFavorites()">Add to Favorites</button>
+                <button type="button" class="btn" onclick="bookNow()">Book Now</button>
+                <div class="loyaltyPoints">
+                    <label for="loyaltyPoints">Loyalty Points:</label>
+                    <input type="text" id="loyaltyPoints" readonly>
+                </div>
+                <div id="roomBookingInfo">
+                    <h3>Room Booking Information</h3>
+                    <p id="currentBooking"></p>
+                    <p id="currentBookingCost"></p>
+                    <p id="overallBooking"></p>
+                    <p id="overallBookingCost"></p>
+                </div>
+            </form>
+        </div>
+        
+
+        <div class="adventure-booking-hero">
+            <div class="adventure-booking-form">
+                <form id="advBookingForm">
+                    <h2 class="booking-heading">Adventure Booking(Diving)</h2>
+
+                    <div class="form-field-text">
+                        <label for="advBookingName">Name:</label><br>
+                        <input type="text" required="" placeholder="Enter your name" id="advBookingName">
+                    </div>
+                    <div class="form-field-text">
+                        <label for="advBookingEmail">Email:</label><br>
+                        <input type="text" required="" placeholder="Enter your Email" id="advBookingEmail">
+                    </div>
+                    <div class="form-field-number">
+                        <label for="advBookingDate">Select a date:</label>
+                        <input type="date" required="" id="advBookingDate">
+                    </div>
+                    <div class="form-field-checkbox">
+                        <legend>Diving Guide:</legend>
+                        <input type="checkbox" name="guide" value="noGuide" id="noGuide"> No Guide<br>
+                        <input type="checkbox" name="guide" value="adultGuide" id="adultGuide"> Adult Guide<br>
+                        <input type="checkbox" name="guide" value="kidGuide" id="kidGuide"> Kid Guide
+                    </div>
+                    <div class="customers">
+                        <fieldset>
+                            <legend>Local Customers</legend>
+                            <div class="localCustomers">
+                                <div class="local">
+                                    <label for="localAdults">No. of Adults:</label>
+                                    <input type="number" id="localAdults" name="localAdults" min="0" value="0">
+                                </div>
+                                <div class="local">
+                                    <label for="localKids">No. of Kids:</label>
+                                    <input type="number" id="localKids" min="0" value="0">
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Foriegn Customers</legend>
+                            <div class="foreignCustomers">
+                                <div class="foreign">
+                                    <label for="foreignAdults">No. of Adults:</label>
+                                    <input type="number" id="foreignAdults" min="0" value="0">
+                                </div>
+                                <div class="foreign">
+                                    <label for="foreignKids">No. of Kids:</label>
+                                    <input type="number" id="foreignKids" min="0" value="0">
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="form-field-number">
+                        <label for="advBookingHours">No. of Hours:</label>
+                        <input type="number" placeholder="Enter no. of hours" min="1" value="1" id="advBookingHours">
+                    </div>
+                    <button type="button" class="btn" onclick="advAddToFavorites()">Add to Favorites</button>
+                    <button type="button" class="btn" onclick="advBookNow()">Book Adventure</button>
+                    <div id="advBookingInfo">
+                        <h3>Adventure Booking Information</h3>
+                        <p id="currentAdvBooking"></p>
+                        <p id="currentAdvBookingCost"></p>
+                        <p id="overallAdvBooking"></p>
+                        <p id="overallAdvBookingCost"></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+             <div class="logo">
+                 <img src="../images/logo.png" alt="logo">
+             </div>
+             <div class="contact">
+                 <h3>Contact Us</h3>
+                 <p>1234 Hotel Street<br>City, Country<br>Phone: +1123-456-7890<br>Email:sakurahotel@gmail.com</p>
+             </div>
+             <div class="links">
+                 <h3>Quick Links</h3>
+                 <ul>
+                     <li><a href="../html/home.html">Home</a></li>
+                     <li><a href="../html/branches.html">Branches</a></li>
+                     <li><a href="../html/adventures.html">Adventures</a></li>
+                     <li><a href="../html/restaurants.html">Restaurants</a></li>
+                     <li><a href="../html/booking.html">Bookings</a></li>
+                 </ul>
+             </div>
+             <div class="social-icons">
+                <h3>Follow us on</h3>
+                <ul>
+                    <li><a href="https://web.facebook.com/login/?_rdc=1&_rdr&wtsid=rdr_0J0tNHUIofqr05wvA"><img src="../images/facebook.png" alt="Facebook"></a></li>
+                    <li><a href="https://www.instagram.com/accounts/login/"><img src="../images/instagram.png" alt="Instagram"></a></li>
+                    <li><a href="https://web.whatsapp.com/"><img src="../images/whatsapp.png" alt="Whatsapp"></a></li>
+                </ul>
+            </div>
+            <div class="divider"></div>
+            <div class="copyrights"><p>All Copyrights Reserved by The Sakura Hotel - &copy; 2023</p></div>
+        </div>
+     </footer>
+</body>
+</html>
+
+
